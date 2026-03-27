@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datattach — Query everything. Share anything.</title>
+    <meta name="description" content="Connect your entire data stack, query across sources, and share secure datasets with anyone, anywhere. Join the waitlist for early access.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf2f7',
+                            100: '#fce7f1',
+                            200: '#f9cee3',
+                            300: '#f4a6cb',
+                            400: '#e870a9',
+                            500: '#9b2d5e',
+                            600: '#832450',
+                            700: '#6b1c41',
+                            800: '#521433',
+                            900: '#3b0024',
+                            950: '#250016',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+        .animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .animate-delay-500 { animation-delay: 0.5s; opacity: 0; }
+    </style>
+</head>
+<body class="bg-white font-sans text-stone-800 antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-brand-100 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="logo.png" alt="Datattach" class="h-9 md:h-10">
+            </div>
+            <a href="#waitlist" class="text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors">
+                Join Waitlist &rarr;
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6 md:pt-44 md:pb-28">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8 animate-fade-in-up">
+                <img src="logo.png" alt="Datattach" class="h-14 md:h-20 mx-auto">
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-sm font-medium mb-8 animate-fade-in-up animate-delay-100">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                Coming Soon
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#640041] leading-[1.1] animate-fade-in-up animate-delay-200">
+                Query everything.<br>Share anything.
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-stone-500 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animate-delay-300">
+                From internal analytics to external data products. Query across your entire stack
+                and share secure, ready-to-use data with anyone, anywhere.
+            </p>
+            <div class="mt-10 animate-fade-in-up animate-delay-400" id="waitlist">
+                <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                    <input
+                        type="email"
+                        placeholder="you@company.com"
+                        required
+                        class="w-full sm:flex-1 px-4 py-3 rounded-lg border border-stone-300 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+                    >
+                    <button
+                        type="submit"
+                        class="w-full sm:w-auto px-6 py-3 rounded-lg bg-brand-600 text-white font-semibold hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-all shadow-lg shadow-brand-600/25"
+                    >
+                        Join the Waitlist
+                    </button>
+                </form>
+                <p class="mt-4 text-sm text-stone-400">Be the first to know when we launch the Beta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Diagram — Hub & Spoke with animated lines -->
+    <section class="pb-20 px-6">
+        <div class="max-w-5xl mx-auto animate-fade-in-up animate-delay-400">
+            <div class="bg-brand-50 rounded-2xl border border-brand-100 p-6 md:p-12 overflow-hidden">
+
+                <!-- Desktop: SVG hub-and-spoke -->
+                <div class="hidden md:block">
+                    <svg viewBox="0 0 960 370" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                        <defs>
+                            <style>
+                                @keyframes dash-flow {
+                                    to { stroke-dashoffset: -24; }
+                                }
+                                .flow-line {
+                                    stroke: #f4a6cb;
+                                    stroke-width: 2;
+                                    stroke-dasharray: 8 6;
+                                    animation: dash-flow 0.8s linear infinite;
+                                }
+                                .flow-line-slow {
+                                    stroke: #f4a6cb;
+                                    stroke-width: 2;
+                                    stroke-dasharray: 8 6;
+                                    animation: dash-flow 1s linear infinite;
+                                }
+                            </style>
+                        </defs>
+
+                        <!-- === CURVED FLOW LINES (Sources → Hub) === -->
+                        <path d="M 230,55 C 320,55 340,145 370,150" class="flow-line" fill="none"/>
+                        <path d="M 230,140 C 320,140 340,163 370,168" class="flow-line-slow" fill="none"/>
+                        <path d="M 230,225 C 320,225 340,190 370,188" class="flow-line" fill="none"/>
+                        <path d="M 230,310 C 320,310 340,210 370,205" class="flow-line-slow" fill="none"/>
+
+                        <!-- === CURVED FLOW LINES (Hub → Destinations) === -->
+                        <path d="M 590,150 C 650,150 670,65 740,65" class="flow-line" fill="none"/>
+                        <path d="M 590,168 C 650,168 670,145 740,145" class="flow-line-slow" fill="none"/>
+                        <path d="M 590,188 C 650,188 670,225 740,225" class="flow-line" fill="none"/>
+                        <path d="M 590,205 C 650,205 670,305 740,305" class="flow-line-slow" fill="none"/>
+
+                        <!-- === SOURCE NODES (left) === -->
+                        <!-- Relational Databases -->
+                        <g>
+                            <rect x="10" y="20" width="220" height="65" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <ellipse cx="35" cy="44" rx="8" ry="4" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <path d="M27,44 v10 c0,2.2 3.6,4 8,4 s8-1.8 8-4 v-10" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <text x="140" y="46" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#57534e" text-anchor="middle">Relational Databases</text>
+                            <text x="140" y="64" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#a8a29e" text-anchor="middle">PostgreSQL, MySQL, etc.</text>
+                        </g>
+                        <!-- Data Warehouses -->
+                        <g>
+                            <rect x="10" y="105" width="220" height="65" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- Warehouse icon -->
+                            <path d="M35,123 l-10,5 h20 z" stroke="#9b2d5e" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                            <rect x="27" y="128" width="16" height="12" rx="1" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <path d="M30,128 v12 M40,128 v12" stroke="#9b2d5e" stroke-width="1" fill="none"/>
+                            <text x="140" y="131" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#57534e" text-anchor="middle">Data Warehouses</text>
+                            <text x="140" y="149" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#a8a29e" text-anchor="middle">Redshift, Snowflake, etc.</text>
+                        </g>
+                        <!-- Data Lakes -->
+                        <g>
+                            <rect x="10" y="190" width="220" height="65" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- Lake/cloud icon -->
+                            <path d="M23,226 a8,8 0 0 1 14,-5 a6,6 0 0 1 10,5 z" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <text x="140" y="216" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#57534e" text-anchor="middle">Data Lakes</text>
+                            <text x="140" y="234" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#a8a29e" text-anchor="middle">Iceberg, Hive, etc.</text>
+                        </g>
+                        <!-- Others -->
+                        <g>
+                            <rect x="10" y="275" width="220" height="65" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- Dots/more icon -->
+                            <circle cx="31" cy="304" r="2.5" fill="#9b2d5e"/>
+                            <circle cx="39" cy="304" r="2.5" fill="#9b2d5e"/>
+                            <circle cx="47" cy="304" r="2.5" fill="#9b2d5e"/>
+                            <text x="140" y="301" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#57534e" text-anchor="middle">Others</text>
+                            <text x="140" y="319" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#a8a29e" text-anchor="middle">MongoDB, Google Sheets, etc.</text>
+                        </g>
+
+                        <!-- === CENTRAL HUB === -->
+                        <g>
+                            <!-- Outer glow -->
+                            <rect x="360" y="122" width="240" height="112" rx="24" fill="#9b2d5e" fill-opacity="0.08"/>
+                            <!-- Secondary glow -->
+                            <rect x="365" y="127" width="230" height="102" rx="21" fill="#9b2d5e" fill-opacity="0.05"/>
+                            <!-- Main box -->
+                            <rect x="370" y="132" width="220" height="92" rx="18" fill="#832450"/>
+                            <!-- White logo -->
+                            <image href="logo_white_text.svg" x="395" y="155" width="170" height="46"/>
+                        </g>
+
+                        <!-- === DESTINATION NODES (right) === -->
+                        <!-- BI Reporting -->
+                        <g>
+                            <rect x="740" y="40" width="205" height="50" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- Chart bars icon -->
+                            <rect x="756" y="57" width="4" height="12" rx="1" fill="#9b2d5e" fill-opacity="0.3" stroke="#9b2d5e" stroke-width="1"/>
+                            <rect x="763" y="51" width="4" height="18" rx="1" fill="#9b2d5e" fill-opacity="0.3" stroke="#9b2d5e" stroke-width="1"/>
+                            <rect x="770" y="54" width="4" height="15" rx="1" fill="#9b2d5e" fill-opacity="0.3" stroke="#9b2d5e" stroke-width="1"/>
+                            <text x="860" y="70" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#57534e" text-anchor="middle">BI Reporting</text>
+                        </g>
+                        <!-- Internal Analytics -->
+                        <g>
+                            <rect x="740" y="120" width="205" height="50" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- People icon -->
+                            <circle cx="766" cy="138" r="5" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <path d="M757,152 a9,9 0 0 1 18,0" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <text x="860" y="150" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#57534e" text-anchor="middle">Internal Analytics</text>
+                        </g>
+                        <!-- External Partners -->
+                        <g>
+                            <rect x="740" y="200" width="205" height="50" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- Group of people icon -->
+                            <!-- Left person -->
+                            <circle cx="760" cy="220" r="3.5" stroke="#9b2d5e" stroke-width="1.3" fill="none"/>
+                            <path d="M754,230 a6,6 0 0 1 12,0" stroke="#9b2d5e" stroke-width="1.3" fill="none"/>
+                            <!-- Center person (front) -->
+                            <circle cx="770" cy="218" r="4" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <path d="M763,229 a7,7 0 0 1 14,0" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <!-- Right person -->
+                            <circle cx="780" cy="220" r="3.5" stroke="#9b2d5e" stroke-width="1.3" fill="none"/>
+                            <path d="M774,230 a6,6 0 0 1 12,0" stroke="#9b2d5e" stroke-width="1.3" fill="none"/>
+                            <text x="860" y="230" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#57534e" text-anchor="middle">External Partners</text>
+                        </g>
+                        <!-- Data Apps -->
+                        <g>
+                            <rect x="740" y="280" width="205" height="50" rx="12" fill="white" stroke="#f9cee3" stroke-width="1.5"/>
+                            <!-- App/window icon -->
+                            <rect x="758" y="297" width="16" height="12" rx="2" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <path d="M758,301 h16" stroke="#9b2d5e" stroke-width="1.5" fill="none"/>
+                            <text x="860" y="310" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#57534e" text-anchor="middle">Data Apps</text>
+                        </g>
+
+                    </svg>
+                </div>
+
+                <!-- Mobile: stacked vertical layout -->
+                <div class="md:hidden flex flex-col items-center gap-4">
+                    <div class="flex flex-col gap-2 w-full max-w-[240px]">
+                        <div class="px-4 py-3 bg-white rounded-lg border border-brand-100 shadow-sm text-center">
+                            <div class="text-sm font-bold text-stone-700">Relational Databases</div>
+                            <div class="text-xs text-stone-400">PostgreSQL, MySQL, etc.</div>
+                        </div>
+                        <div class="px-4 py-3 bg-white rounded-lg border border-brand-100 shadow-sm text-center">
+                            <div class="text-sm font-bold text-stone-700">Data Warehouses</div>
+                            <div class="text-xs text-stone-400">Redshift, Snowflake, etc.</div>
+                        </div>
+                        <div class="px-4 py-3 bg-white rounded-lg border border-brand-100 shadow-sm text-center">
+                            <div class="text-sm font-bold text-stone-700">Data Lakes</div>
+                            <div class="text-xs text-stone-400">Iceberg, Hive, etc.</div>
+                        </div>
+                        <div class="px-4 py-3 bg-white rounded-lg border border-brand-100 shadow-sm text-center">
+                            <div class="text-sm font-bold text-stone-700">Others</div>
+                            <div class="text-xs text-stone-400">MongoDB, Google Sheets, etc.</div>
+                        </div>
+                    </div>
+
+                    <!-- Animated vertical dots -->
+                    <div class="flex flex-col items-center gap-1 py-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-300 animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" style="animation-delay:0.2s"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" style="animation-delay:0.4s"></span>
+                    </div>
+
+                    <div class="px-8 py-4 bg-brand-600 rounded-xl text-white font-bold text-lg shadow-lg shadow-brand-600/30 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125v-3.75" />
+                        </svg>
+                        Datattach
+                    </div>
+
+                    <!-- Animated vertical dots -->
+                    <div class="flex flex-col items-center gap-1 py-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-300 animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" style="animation-delay:0.2s"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" style="animation-delay:0.4s"></span>
+                    </div>
+
+                    <div class="flex flex-col gap-2 w-full max-w-[200px]">
+                        <div class="px-4 py-2.5 bg-white rounded-lg border border-brand-100 text-sm font-medium text-stone-600 shadow-sm text-center">BI Reporting</div>
+                        <div class="px-4 py-2.5 bg-white rounded-lg border border-brand-100 text-sm font-medium text-stone-600 shadow-sm text-center">Internal Analytics</div>
+                        <div class="px-4 py-2.5 bg-white rounded-lg border border-brand-100 text-sm font-medium text-stone-600 shadow-sm text-center">External Partners</div>
+                        <div class="px-4 py-2.5 bg-white rounded-lg border border-brand-100 text-sm font-medium text-stone-600 shadow-sm text-center">Data Apps</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="pb-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 animate-fade-in-up animate-delay-500">
+                <!-- Unified Querying -->
+                <div class="p-8 rounded-2xl border border-stone-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 17.25V6.75A2.25 2.25 0 0 0 18.75 4.5H5.25A2.25 2.25 0 0 0 3 6.75v10.5A2.25 2.25 0 0 0 5.25 20.25Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Unified Querying</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        Connect SQL, NoSQL, and Cloud Storage in one interface. Stop context switching
+                        and start querying across your entire stack instantly.
+                    </p>
+                </div>
+
+                <!-- Secure External Sharing -->
+                <div class="p-8 rounded-2xl border border-stone-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Secure External Sharing</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        Share specific datasets with partners or clients without giving away the keys to
+                        your entire warehouse. You control exactly what they see&mdash;and nothing more.
+                    </p>
+                </div>
+
+                <!-- Monetization Ready -->
+                <div class="p-8 rounded-2xl border border-stone-200 hover:border-brand-200 hover:shadow-lg hover:shadow-brand-50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Monetization Ready</h3>
+                    <p class="text-stone-500 leading-relaxed">
+                        Turn your data into a product. Manage access, track usage, and deliver value to
+                        external stakeholders with seamless, professional delivery.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-brand-100 py-8 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-stone-400">
+            <span>&copy; 2026 Datattach. All rights reserved.</span>
+            <a href="mailto:hello@datattach.com" class="hover:text-brand-600 transition-colors">hello@datattach.com</a>
+        </div>
+    </footer>
+
+</body>
+</html>
