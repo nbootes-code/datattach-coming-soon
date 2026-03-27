@@ -82,21 +82,23 @@
                 and share secure, ready-to-use data with anyone, anywhere.
             </p>
             <div class="mt-10 animate-fade-in-up animate-delay-400" id="waitlist">
-                <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                <form id="waitlist-form" class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
                     <input
+                        id="waitlist-email"
                         type="email"
                         placeholder="you@company.com"
                         required
                         class="w-full sm:flex-1 px-4 py-3 rounded-lg border border-stone-300 text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
                     >
                     <button
+                        id="waitlist-btn"
                         type="submit"
                         class="w-full sm:w-auto px-6 py-3 rounded-lg bg-brand-600 text-white font-semibold hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-all shadow-lg shadow-brand-600/25"
                     >
                         Join the Waitlist
                     </button>
                 </form>
-                <p class="mt-4 text-sm text-stone-400">Be the first to know when we launch the Beta.</p>
+                <p id="waitlist-msg" class="mt-4 text-sm text-stone-400">Be the first to know when we launch the Beta.</p>
             </div>
         </div>
     </section>
@@ -346,6 +348,44 @@
             <a href="mailto:hello@datattach.com" class="hover:text-brand-600 transition-colors">hello@datattach.com</a>
         </div>
     </footer>
+
+    <!-- Waitlist form submission -->
+    <script>
+        // Replace this URL with your Google Apps Script web app URL
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwv75bnF1bUyvsGN2XuXqsXtYu4pAfXsLhrHfVU2iQb-34Nf-2ANNH0ixKVPGlI_laP/exec';
+
+        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('waitlist-email').value;
+            const btn = document.getElementById('waitlist-btn');
+            const msg = document.getElementById('waitlist-msg');
+
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            try {
+                const res = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ email: email })
+                });
+
+                if (res.ok) {
+                    msg.textContent = "You're on the list! We'll be in touch.";
+                    msg.className = 'mt-4 text-sm text-brand-600 font-medium';
+                    document.getElementById('waitlist-email').value = '';
+                } else {
+                    throw new Error('Request failed');
+                }
+            } catch (err) {
+                msg.textContent = 'Something went wrong. Please try again or email hello@datattach.com.';
+                msg.className = 'mt-4 text-sm text-red-500';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Join the Waitlist';
+            }
+        });
+    </script>
 
 </body>
 </html>
