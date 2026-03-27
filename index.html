@@ -354,36 +354,32 @@
         // Replace this URL with your Google Apps Script web app URL
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwv75bnF1bUyvsGN2XuXqsXtYu4pAfXsLhrHfVU2iQb-34Nf-2ANNH0ixKVPGlI_laP/exec';
 
-        document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = document.getElementById('waitlist-email').value;
+            const emailInput = document.getElementById('waitlist-email');
+            const email = emailInput.value;
             const btn = document.getElementById('waitlist-btn');
             const msg = document.getElementById('waitlist-msg');
 
             btn.disabled = true;
             btn.textContent = 'Submitting...';
 
-            try {
-                const res = await fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify({ email: email })
-                });
-
-                if (res.ok) {
-                    msg.textContent = "You're on the list! We'll be in touch.";
-                    msg.className = 'mt-4 text-sm text-brand-600 font-medium';
-                    document.getElementById('waitlist-email').value = '';
-                } else {
-                    throw new Error('Request failed');
-                }
-            } catch (err) {
-                msg.textContent = 'Something went wrong. Please try again or email hello@datattach.com.';
-                msg.className = 'mt-4 text-sm text-red-500';
-            } finally {
+            fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ email: email })
+            }).then(function() {
+                emailInput.value = '';
                 btn.disabled = false;
                 btn.textContent = 'Join the Waitlist';
-            }
+                msg.innerHTML = '<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 text-brand-700 font-medium">&#10003; You\'re on the list! We\'ll be in touch.</span>';
+            }).catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Join the Waitlist';
+                msg.textContent = 'Something went wrong. Please try again or email hello@datattach.com.';
+                msg.className = 'mt-4 text-sm text-red-500';
+            });
         });
     </script>
 
