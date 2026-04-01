@@ -294,7 +294,7 @@
     <footer class="border-t border-brand-100 py-8 px-6">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-stone-400">
             <span>&copy; 2026 Datattach. All rights reserved.</span>
-            <a href="mailto:hello@datattach.com" class="hover:text-brand-600 transition-colors">hello@datattach.com</a>
+            <span class="text-stone-400">datattach.com</span>
         </div>
     </footer>
 
@@ -326,7 +326,7 @@
             }).catch(function() {
                 btn.disabled = false;
                 btn.textContent = 'Join the Waitlist';
-                msg.textContent = 'Something went wrong. Please try again or email hello@datattach.com.';
+                msg.textContent = 'Something went wrong. Please try again.';
                 msg.className = 'mt-4 text-sm text-red-500';
             });
         });
